@@ -102,3 +102,5 @@ We envision DebtPool Manager becoming the cornerstone infrastructure for:
 - **License**: MIT
 
 ---
+
+**Note**: This project is currently in development. Contract addresses and deployment details will be updated as the platform progresses through testing and deployment phases. Please refer to our official documentation and community channels for the latest updates on contract deployments and feature releases.
