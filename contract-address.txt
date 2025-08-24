@@ -1,0 +1,341 @@
+# DebtPool Manager Contract Addresses
+# Multi-collateral debt position platform with automated liquidation protection
+# Updated: December 20, 2024
+# Version: 1.0.0
+
+=====================================
+MAINNET DEPLOYMENT - COMING SOON
+=====================================
+
+Status: 🚧 PLANNED FOR FUTURE RELEASE
+
+Mainnet deployment will include:
+- Full security audit completion
+- Community testing and feedback integration
+- Performance optimization
+- Multi-collateral support expansion
+
+Pre-Mainnet Checklist:
+□ Complete testnet testing phase
+□ Professional security audit
+□ Community feedback integration
+□ Gas optimization
+□ Documentation finalization
+□ Insurance fund setup
+
+⚠️ DO NOT USE MAINNET ADDRESSES UNTIL OFFICIALLY ANNOUNCED
+
+=====================================
+TESTNET DEPLOYMENT
+=====================================
+
+Contract Name: DebtPool Manager
+Contract Address: STXSKEGV667G65RZWN78SE19J6A0D3AZJ0XTH4C5.Debtpool-Manager
+Network: Stacks Testnet
+Chain ID: 2147483648
+Deployer Address: STXSKEGV667G65RZWN78SE19J6A0D3AZJ0XTH4C5
+Deployment Transaction: 0xac920c2704869874f944270743d2a0a204597842387e067e8a1bc672ed22c28f
+Deployment Block: #3526070
+Deployment Timestamp: 2:28:00 PM IST 8/24/2025
+Gas Used: 0.5 STX
+Status: ✅ Verified
+
+Contract Explorer Links:
+- Testnet Explorer: https://explorer.hiro.so/txid/STXSKEGV667G65RZWN78SE19J6A0D3AZJ0XTH4C5.Debtpool-Manager?chain=testnet
+
+
+=====================================
+CONTRACT PARAMETERS
+=====================================
+
+Initial Configuration:
+- Min Collateral Ratio: 150%
+- Liquidation Threshold: 120%
+- Liquidation Penalty: 10%
+- Supported Collateral: STX (active), BTC (planned), ETH (planned)
+
+STX Collateral Configuration:
+- Price Feed: 100 (base price in cents)
+- Liquidation Ratio: 120%
+- Max Debt Ratio: 80%
+- Status: Enabled
+
+Error Codes:
+- u100: Owner only
+- u101: Invalid amount
+- u102: Insufficient collateral
+- u103: Position not found
+- u104: Liquidation threshold breach
+- u105: Invalid collateral ratio
+
+=====================================
+DEPLOYMENT INSTRUCTIONS
+=====================================
+
+Prerequisites:
+1. Stacks CLI v2.0+ installed
+2. Wallet with minimum 5 STX for deployment
+3. Contract code reviewed and tested locally
+
+Mainnet Deployment Command:
+```bash
+stx deploy_contract debtpool-manager contracts/debtpool-manager.clar \
+  --network mainnet \
+  --fee 0.005 \
+  --nonce auto
+```
+
+Testnet Deployment Command:
+```bash
+stx deploy_contract debtpool-manager contracts/debtpool-manager.clar \
+  --network testnet \
+  --fee 0.005 \
+  --nonce auto
+```
+
+Post-Deployment Verification:
+```bash
+# Check contract deployment
+stx call_read_only_fn ST2K1A3F6H7G8J9L0M1N2P3Q4R5S6T7U8V9W0X1Y2Z.debtpool-manager get-global-stats
+
+# Verify collateral configuration
+stx call_read_only_fn ST2K1A3F6H7G8J9L0M1N2P3Q4R5S6T7U8V9W0X1Y2Z.debtpool-manager get-collateral-config "STX"
+```
+
+=====================================
+FRONTEND INTEGRATION
+=====================================
+
+React Configuration:
+```javascript
+const DEBTPOOL_CONFIG = {
+  contracts: {
+    mainnet: {
+      address: 'SP2K1A3F6H7G8J9L0M1N2P3Q4R5S6T7U8V9W0X1Y2Z.debtpool-manager',
+      network: 'mainnet'
+    },
+    testnet: {
+      address: 'ST2K1A3F6H7G8J9L0M1N2P3Q4R5S6T7U8V9W0X1Y2Z.debtpool-manager',
+      network: 'testnet'
+    }
+  },
+  networks: {
+    mainnet: {
+      chainId: 1,
+      name: 'Stacks Mainnet',
+      rpcUrl: 'https://stacks-node-api.mainnet.stacks.co',
+      explorerUrl: 'https://explorer.stacks.co'
+    },
+    testnet: {
+      chainId: 2147483648,
+      name: 'Stacks Testnet',
+      rpcUrl: 'https://stacks-node-api.testnet.stacks.co',
+      explorerUrl: 'https://explorer.stacks.co'
+    }
+  },
+  parameters: {
+    minCollateralRatio: 150,
+    liquidationThreshold: 120,
+    liquidationPenalty: 10,
+    supportedCollaterals: ['STX']
+  }
+};
+```
+
+Web3 Integration Example:
+```javascript
+import { StacksNetwork, StacksTestnet, StacksMainnet } from '@stacks/network';
+import { callReadOnlyFunction, contractPrincipalCV } from '@stacks/transactions';
+
+const network = new StacksTestnet();
+const contractAddress = 'ST2K1A3F6H7G8J9L0M1N2P3Q4R5S6T7U8V9W0X1Y2Z';
+const contractName = 'debtpool-manager';
+
+// Example: Get global stats
+const getGlobalStats = async () => {
+  const result = await callReadOnlyFunction({
+    network,
+    contractAddress,
+    contractName,
+    functionName: 'get-global-stats',
+    functionArgs: []
+  });
+  return result;
+};
+```
+=====================================
+PROJECT STATUS & DEPLOYMENT PHASE
+=====================================
+
+Current Phase: 🧪 TESTNET BETA TESTING
+Version: 1.0.0-beta
+Status: Active development and testing
+
+Testnet Testing Goals:
+✅ Core functionality validation
+✅ Security testing and edge cases
+✅ User interface testing
+✅ Performance optimization
+🔄 Community feedback collection
+🔄 Gas cost optimization
+⏳ Professional security audit
+⏳ Multi-collateral expansion testing
+
+Mainnet Readiness Criteria:
+- [ ] 30+ days of successful testnet operation
+- [ ] Professional security audit completion
+- [ ] Community testing and feedback integration
+- [ ] Zero critical bugs for 14+ days
+- [ ] Gas optimization completion
+- [ ] Documentation and tutorial completion
+- [ ] Emergency procedures testing
+
+⚠️ IMPORTANT: This is a TESTNET deployment only. 
+    Do not use real funds. Testnet STX has no value.
+    Mainnet deployment will be announced separately.
+
+=====================================
+TESTNET TESTING INSTRUCTIONS
+=====================================
+
+Getting Testnet STX:
+1. Visit: https://explorer.stacks.co/sandbox/faucet
+2. Enter your testnet address
+3. Request testnet STX tokens (free)
+4. Wait for confirmation
+
+Testing Checklist for Contributors:
+□ Create debt position with different ratios
+□ Test liquidation scenarios
+□ Verify position health monitoring
+□ Test edge cases (minimum amounts, etc.)
+□ Report any bugs via GitHub Issues
+□ Provide UX feedback for frontend
+
+Bug Reporting:
+- GitHub Issues: https://github.com/sohammore33/Debtpool-Manager-Contract/
+- Security Issues: sohammore3312@gmail.com (if applicable)
+- General Feedback: Use GitHub Discussions
+
+Security Features:
+- ✅ Input validation on all public functions
+- ✅ Overflow protection using built-in Clarity safeguards
+- ✅ Access control for owner-only functions
+- ✅ Collateral ratio enforcement
+- ✅ Automated liquidation protection
+- ✅ Cross-margin calculation validation
+
+Known Limitations:
+- Oracle integration not yet implemented (using fixed price feeds)
+- Single collateral type active (STX only)
+- No flash loan protection (to be added in v1.1)
+
+Security Best Practices:
+1. Always verify collateral ratios before transactions
+2. Monitor liquidation thresholds regularly
+3. Use testnet for initial testing
+4. Implement proper error handling in frontend
+5. Regular security audits recommended
+
+  
+=====================================
+SECURITY AUDIT INFORMATION
+=====================================
+
+Audit Status: ✅ Self-Audited (Professional audit recommended)
+Audit Date: December 2024
+Security Features:
+- ✅ Input validation on all public functions
+- ✅ Overflow protection using built-in Clarity safeguards
+- ✅ Access control for owner-only functions
+- ✅ Collateral ratio enforcement
+- ✅ Automated liquidation protection
+- ✅ Cross-margin calculation validation
+
+Known Limitations:
+- Oracle integration not yet implemented (using fixed price feeds)
+- Single collateral type active (STX only)
+- No flash loan protection (to be added in v1.1)
+
+Security Best Practices:
+1. Always verify collateral ratios before transactions
+2. Monitor liquidation thresholds regularly
+3. Use testnet for initial testing
+4. Implement proper error handling in frontend
+5. Regular security audits recommended
+
+=====================================
+MONITORING & ANALYTICS
+=====================================
+
+Key Metrics Dashboard:
+- Total Value Locked (TVL): Track via get-global-stats
+- Active Positions: Count via position monitoring
+- Average Collateral Ratio: Calculate from position data
+- Liquidation Events: Monitor liquidation transactions
+- System Utilization: Debt/Collateral ratio
+
+Monitoring Tools:
+- Stacks Explorer API for transaction monitoring
+- Custom analytics dashboard (planned)
+- Discord bot for liquidation alerts (planned)
+- Email notifications for critical events (planned)
+
+Health Monitoring Commands:
+```bash
+# Get system health
+stx call_read_only_fn [CONTRACT_ADDRESS] get-global-stats
+
+# Check specific position
+stx call_read_only_fn [CONTRACT_ADDRESS] get-position-health [USER_ADDRESS]
+
+# Monitor liquidation pool
+stx call_read_only_fn [CONTRACT_ADDRESS] get-global-stats | grep liquidation-pool
+```
+
+=====================================
+API ENDPOINTS & INTEGRATION
+=====================================
+
+Stacks Node API Integration:
+Base URL (Testnet): https://stacks-node-api.testnet.stacks.co
+
+Contract Info Endpoint:
+GET /v1/contracts/STXSKEGV667G65RZWN78SE19J6A0D3AZJ0XTH4C5.Debtpool-Manager
+
+Transaction History:
+GET /extended/v1/address/STXSKEGV667G65RZWN78SE19J6A0D3AZJ0XTH4C5.Debtpool-Manager/transactions
+
+Read-Only Function Calls:
+POST /v2/contracts/call-read/STXSKEGV667G65RZWN78SE19J6A0D3AZJ0XTH4C5.Debtpool-Manager/[FUNCTION_NAME]
+
+WebSocket for Real-time Updates:
+wss://stacks-node-api.[network].stacks.co/extended/v1/ws
+
+=====================================
+GOVERNANCE & UPGRADES
+=====================================
+
+Contract Governance:
+- Current Owner: STXSKEGV667G65RZWN78SE19J6A0D3AZJ0XTH4C5
+- Upgrade Mechanism: Deploy new contract version (immutable contracts)
+- Parameter Updates: Owner can modify collateral configurations
+- Emergency Actions: Liquidation system is automated and permissionless
+
+Future Upgrades:
+v1.1.0 :
+- Oracle price feed integration
+- Multi-collateral expansion (BTC, ETH)
+- Enhanced liquidation algorithms
+
+v1.2.0 :
+- Governance token implementation
+- Community parameter voting
+- Advanced risk management
+
+v2.0.0 :
+- Cross-chain capabilities
+- Layer 2 integration
+- Institutional features
+
+
