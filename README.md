@@ -87,7 +87,8 @@ We envision DebtPool Manager becoming the cornerstone infrastructure for:
 
 ## Contract Address Details
 
-<img width="680" height="311" alt="image" src="https://github.com/user-attachments/assets/9998c910-af51-488f-8696-82b796ed6c28" />
+<img width="1895" height="867" alt="Screenshot 2025-08-24 170536" src="https://github.com/user-attachments/assets/72ee5b29-b941-41c6-92e0-3f5b45b01cbe" />
+
 
 
 ### Testnet Deployment  
@@ -106,3 +107,4 @@ We envision DebtPool Manager becoming the cornerstone infrastructure for:
 
 
 **Note**: This project is currently in development. Contract addresses and deployment details will be updated as the platform progresses through testing and deployment phases. Please refer to our official documentation and community channels for the latest updates on contract deployments and feature releases.
+
